@@ -29,6 +29,25 @@ class ProductRequest extends FormRequest
             'image' => 'required|url',
             'price' => 'required|numeric',
             'quantity' => 'required|integer',
-                ];
+        ];
+    }
+
+    public function messages(): array
+    {
+        return [
+            'category_id.required' => 'The category is required.',
+            'category_id.exists' => 'The selected category does not exist.',
+            'title.required' => 'The title is required.',
+            'title.max' => 'The title may not exceed 255 characters.',
+            'description.required' => 'The description is required.',
+            'code.required' => 'The code is required.',
+            'code.unique' => 'The code must be unique.',
+            'image.required' => 'The image URL is required.',
+            'image.url' => 'The image must be a valid URL.',
+            'price.required' => 'The price is required.',
+            'price.numeric' => 'The price must be a number.',
+            'quantity.required' => 'The quantity is required.',
+            'quantity.integer' => 'The quantity must be an integer.',
+        ];
     }
 }
